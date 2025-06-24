@@ -1,0 +1,19 @@
+ @layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+}
+@layer components {
+  
+  .primary-btn {
+    @apply w-[163px] py-4 px-10 font-[700] text-base text-white  rounded-[2px] bg-[#FB2E86];
+  }
+
+  .headerUl li{
+    @apply flex items-center gap-1
+
+  }
+  .icon-hover{
+    @apply text-[#1389FF]  hover:text-[#2F1AC4] hover:bg-[#EEEFFB] hover:w-[30px] hover:h-[30px]  hover:drop-shadow-[4px] rounded-full hover:px-[5px] hover:py-[3px]
+  }
+}
