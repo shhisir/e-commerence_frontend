@@ -1,11 +1,11 @@
 import React from 'react'
-import { productDetails } from '../data/productData'
-import ProductCard from './ProductCard'
+import ProductCard from '../ProductCard'
+import { productDetails } from '../../data/productData'
 
 const Product = () => {
   return (
     <div className='w-full flex justify-center'>
-      <div className='w-full grid grid-cols-4 gap-[30px] justify-items-center'>
+      <div className='w-full flex justify-center gap-[30px] '>
       {productDetails.map((product,index)=>(
         <ProductCard key={index} product={product}/>
       ))}

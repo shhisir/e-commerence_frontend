@@ -4,7 +4,7 @@ import { IoCartOutline } from "react-icons/io5";
 
 const ProductCard = ({product}) => {
   return (
-    <div className="w-full flex justify-center h-screen items-center">
+    
       <div className="w-[270px] h-fit shadow-sm  group relative">
         <div className="bg-[#F6F7FB] h-[236px] pt-[46px] w-full flex flex-col items-center relative">
 
@@ -34,7 +34,7 @@ const ProductCard = ({product}) => {
           <p className="text-[#151875]  text-[14px] ">$42.00</p>
         </div>
       </div>
-    </div>
+
   );
 };
 
