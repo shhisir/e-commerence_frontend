@@ -14,6 +14,6 @@
 
   }
   .icon-hover{
-    @apply text-[#1389FF]  hover:text-[#2F1AC4] hover:bg-[#EEEFFB] hover:w-[30px] hover:h-[30px]  hover:drop-shadow-[4px] rounded-full hover:px-[5px] hover:py-[3px]
+    @apply text-[#1389FF] text-[30px] p-[5px] hover:text-[#2F1AC4] hover:bg-[#EEEFFB] hover:scale-[1.2]  hover:drop-shadow-[4px] rounded-full 
   }
 }

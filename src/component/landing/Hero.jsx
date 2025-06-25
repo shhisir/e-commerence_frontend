@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className='w-full bg-[#F2F0FF] px-[54px] flex items-center justify-end py-[35px] relative'>
         <div className='absolute w-[387px] aspect-square top-2 left-[50px]'>
-            <img src="/public/images/light.png" alt="lamp pic" className='w-full h-full'  />
+            <img src="/images/light.png" alt="lamp pic" className='w-full h-full'  />
         </div>
 
         <div className='w-[550px] flex flex-col gap-3'>
@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
 
         <div className='w-[550px] h-[566px]'>
-            <img src="/public/images/sofa.png" alt="sofa pic"  className='object-contain w-full h-full'/>
+            <img src="/images/sofa.png" alt="sofa pic"  className='object-contain w-full h-full'/>
         </div>
     </div>
   )

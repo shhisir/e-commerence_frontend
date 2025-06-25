@@ -2,7 +2,7 @@ import React from "react";
 import { BiHeart, BiSearch } from "react-icons/bi";
 import { IoCartOutline } from "react-icons/io5";
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
   return (
     <div className="w-full flex justify-center h-screen items-center">
       <div className="w-[270px] h-fit shadow-sm  group relative">
@@ -14,7 +14,7 @@ const ProductCard = () => {
                 <BiSearch className="icon-hover"/>
             </div>
           <div className="w-[178px] aspect-square  mb-3">
-            <img src="/images/chair1.png" alt="" className="w-full h-full" />
+            <img src={`${product.imagepath}`} alt="" className="w-full h-full" />
 
 
           </div>
