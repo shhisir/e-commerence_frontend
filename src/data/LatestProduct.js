@@ -1,4 +1,4 @@
-const latestProducts = [
+export const latestProducts = [
   {
     name: "Cantilever Chair ",
     price: "$199.99",

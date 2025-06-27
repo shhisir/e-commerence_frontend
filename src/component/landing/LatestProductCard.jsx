@@ -5,8 +5,8 @@ import { LiaSearchPlusSolid } from 'react-icons/lia'
 function LatestProductCard({img,name,price}) {
   return (
    
-      <div className='flex flex-col gap-[10px] p-2  w-[280px]  h-[225px]  hover:shadow-xl group relative '>
-        <div className="hidden  absolute bottom-[40px] left-[14px]  flex flex-col gap-[1px] group-hover:block group-hover:flex">
+      <div className='flex flex-col gap-[10px] p-2  w-[313px]  h-[225px]  hover:shadow-xl group relative  '>
+        <div className="hidden  absolute bottom-[40px] left-[14px]  flex-col gap-[1px]  group-hover:flex">
                   <div className="w-[30px] h-[30px] flex justify-center items-center rounded-full  text-[16px] text-[#1389FF] hover:text-[#2F1AC4]  hover:bg-[#EEEFFB90]">
                     <CiShoppingCart  />
                   </div>
