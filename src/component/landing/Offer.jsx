@@ -28,7 +28,7 @@ const Offer = () => {
 
     ]
   return (
-    <div className='flex flex-col justify-center items-center mt-20 w-full h-[500px]'>
+    <div className='flex flex-col justify-center text-center items-center mt-20 w-full h-[500px]'>
       <p className='text-[42px] text-[#151875] font-[700]'>What Shopex Offer!</p>
       <div className='flex  justify-center items-center gap-5 w-[80%] h-[400px] '>
       { offerData.map((offer,index)=>(

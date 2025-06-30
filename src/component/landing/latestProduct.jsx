@@ -4,8 +4,8 @@ import LatestProductCard from './LatestProductCard'
 
 const LatestProduct = () => {
   return (
-    <div>
-      <div className='flex flex-col items-center justify-center gap-5 w-full'>
+    <div className=''>
+      <div className='flex flex-col items-center justify-center gap-5 w-full bg-[#F6F7FB]'>
         <p className='text-[42px] font-[700] text-[#151875]'>Leatest Products</p>
         <p className='flex gap-5 text-[14px] font-[500] text-[#151875]'>
             <span>New Arrival</span>

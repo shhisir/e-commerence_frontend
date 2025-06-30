@@ -1,7 +1,7 @@
 import React from "react";
 import { MdSearch } from "react-icons/md";
 
-function footer() {
+function Footer() {
   return (
     <div className="flex flex-col justify-center items-center bg-[#EEEFFB]  mt-[50px]">
 
@@ -67,4 +67,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;
