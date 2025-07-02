@@ -1,9 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const Breadcrums = () => {
   const location = useLocation();
-  const pathname = MdLocationCity.pathname;
+  const pathname = location.pathname;
   const pathParts = pathname.split("/").filter(Boolean);
   return (
     <nav

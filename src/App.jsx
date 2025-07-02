@@ -6,6 +6,7 @@ import ProductCard from "./component/ProductCard";
 import Home from "./pages/Home";
 import Heronav from "./component/reusable/Heronav";
 import Layout from "./Layout";
+import Shopping from "./pages/Shopping";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
       <Route index element={<Home/>} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<div><Signup/></div>} />
-      <Route path="shop" element={<div><Heronav/></div>} />
+      <Route path="shop" element={<div><Shopping/></div>} />
       
        
        </Route>
