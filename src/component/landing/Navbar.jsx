@@ -1,6 +1,7 @@
 import React from 'react'
 import { CiSearch } from 'react-icons/ci'
 import { IoIosArrowDown } from 'react-icons/io'
+import { Link } from 'react-router'
 
 const Navbar = () => {
   return (
@@ -12,12 +13,13 @@ const Navbar = () => {
             <p className='font-[600] text-[34px] text-[#0D0E43]'>Hekto</p>
 
             
-                <ul className=' flex text-base gap-[35px] leading-[20px] text-[#0D0E43] h-full items-center mt-0'>
-                    <li className='text-[#FB2E86] flex items-center h-fit'><span>Home </span><IoIosArrowDown className='text-sm  mt-1' /></li>
-                    <li>Pages</li>
-                    <li>Products</li>
+                <ul className=' flex text-base gap-[35px] leading-[20px] text-[#0D0E43] h-full items-center mt-0 cursor-pointer'>
+                    <Link to={'/'}><li className='text-[#FB2E86] flex items-center h-fit'><span>Home </span><IoIosArrowDown className='text-sm  mt-1' /></li></Link>
+                  <li>Pages</li>
+                    <Link to='/products' className=""><li>Products</li></Link>
+                    
                     <li>Blog</li>
-                    <li>Shop</li>
+                    <Link to={'/shop'}><li>Shop</li></Link>
                     <li>Contacts</li>
                 </ul>
           
