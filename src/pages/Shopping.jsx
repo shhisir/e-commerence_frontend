@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Breadcrums from "../component/reusable/Breadcrums";
 import HeroNav from "../component/reusable/Heronav";
 import { productDetails } from "../data/productData";
@@ -7,18 +7,20 @@ import ProductCard from "../component/ProductCard";
 
 
 const Shopping = () => {
-  const itemList = [
-    { id: "1", title: "Wood Chair" },
-    { id: "2", title: "Plastic Chair" },
-    { id: "3", title: "Sofa collection" },
-  ];
-  return (
+  const [currentPage,setCurrentPage] = useState(1)
+  const [itemsPerPage,setItemsPerPage] = useState(3)
+   const totalpages = Math.ceil (productDetails.length / itemsPerPage)
+
+   const  indexOfLastItems = currentPage * itemsPerPage
+   const indexOFirstItems = indexOfLastItems - itemsPerPage
+   const currentItems = productDetails.slice(indexOFirstItems,indexOfLastItems)
+     return (
     <>
       <div>
         <Breadcrums />
         <HeroNav />{" "}
       </div>
-      <FilterBar />
+      <FilterBar setItemsPerPage ={setCurrentPage}  />
 
       <div className="w-full flex justify-center gap-[30px] mx-auto mt-8">
         {productDetails.map((item, index) => {
