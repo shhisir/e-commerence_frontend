@@ -2,11 +2,15 @@
 import { createBrowserRouter } from "react-router-dom";
 // import { PublicRoute } from '../components/PublicRoute';
 
-import { Protected } from "../components/Protected";
-import { Layout } from "../Layout";
-import Home from "../pages/home/Home";
-import Login from "../pages/Login";
+// import { Protected } from "../components/Protected";
+import  Layout  from "../Layout";
+import Home from "../pages/Home";
+import Product from "../component/landing/Product";
 import Shopping from "../pages/Shopping";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+
+
 
 export const router = createBrowserRouter([
 
@@ -17,26 +21,37 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Protected>
+          
             <Home />
-          </Protected>
+          
         ),
+      },{
+        path:"products",
+        element:(
+
+            <Product />
+        )
+            // <Protected>
+
+
+            // </Protected>
+
       },
 
       {
         path: "dashboard",
         element: (
-          <Protected>
+          
             <Shopping />
-          </Protected>
+          
         ),
       },
       {
         path: "shop",
         element: (
-          <Protected>
+          
             <Shopping />
-          </Protected>
+          
         ),
       },
     ],
@@ -45,6 +60,11 @@ export const router = createBrowserRouter([
     {
     path: "login",
     element: <Login />,
+  },
+    {
+    path: "signup",
+    element: <Signup/>,
+
   },
 
 

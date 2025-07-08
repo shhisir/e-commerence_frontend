@@ -7,12 +7,12 @@ import Footer from "./component/landing/Footer";
 
 const Layout = () => {
   return (
-    <>
+    <div>
       <Header />
       <Navbar />
       <Outlet />
-      <Footer />
-    </>
+      <Footer /></div>
+    
   );
 };
 
