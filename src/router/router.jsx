@@ -9,6 +9,8 @@ import Product from "../component/landing/Product";
 import Shopping from "../pages/Shopping";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import ProductDetails from "../pages/[slug]/ProductDetailes";
+import { Protected } from "../component/Protected";
 
 
 
@@ -16,25 +18,23 @@ export const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Layout />,
+    element: <Protected><Layout /></Protected>,
     children: [
       {
         index: true,
         element: (
           
-            <Home />
+            <Home /> 
           
         ),
-      },{
+      },
+      {
         path:"products",
         element:(
 
             <Product />
         )
-            // <Protected>
-
-
-            // </Protected>
+          
 
       },
 
@@ -53,7 +53,13 @@ export const router = createBrowserRouter([
             <Shopping />
           
         ),
-      },
+      },{
+        path:"shop-details/:id",
+        element :(
+          <ProductDetails/>
+        )
+
+      }
     ],
   },
 

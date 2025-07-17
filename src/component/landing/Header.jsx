@@ -4,8 +4,10 @@ import { FaPhoneVolume } from "react-icons/fa";
 import { GrCart } from "react-icons/gr";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const {user}= useSelector((state)=>state.auth)
   return (
     <div className="w-full flex justify-center  md:h-[44px] bg-[#7E33E0]">
     <div className="lg:w-[80%] w-full  flex flex-wrap lg:flex-nowrap justify-between">
@@ -30,8 +32,10 @@ const Header = () => {
             USD <IoIosArrowDown />
           </li>
           <li >
+          
             Login <IoPersonOutline />
           </li>
+
           <li >
             WishList <CiHeart />
           </li>

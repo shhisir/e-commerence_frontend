@@ -22,7 +22,7 @@ const FilterBar = ({setItemsPerPage}) => {
             <input
               type="text"
               className=" border-[1px] border-[#E7E6EF] outline-[#221f49] outline-offset-1 w-[55px] "
-              onChange={e}
+              // onChange={e}
             />
           </div>
           <div className="flex items-center">

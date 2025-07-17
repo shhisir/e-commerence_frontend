@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import ProductDetailCard from '../../components/cards/ProductDetailCard'
+import ProductDetailCard from '../../component/ProductDetailCard'
 
 const ProductDetails = () => {
     const {id} = useParams()

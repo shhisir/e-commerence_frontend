@@ -1,8 +1,14 @@
 import React from "react";
 import { BiHeart, BiSearch } from "react-icons/bi";
 import { IoCartOutline } from "react-icons/io5";
+import {useNavigate} from "react-router-dom"
 
 const ProductCard = ({ product }) => {
+  console.log(product.id)
+  const navigate = useNavigate()
+  const handleNavigate =() => {
+    navigate(`/shop-details/${product.id}`)
+  }
   return (
     <div className="w-[270px] h-fit shadow-sm  group relative">
       <div className="bg-[#F6F7FB] h-[236px] pt-[46px] w-full flex flex-col items-center relative">
@@ -14,9 +20,11 @@ const ProductCard = ({ product }) => {
         <div className="w-[178px] aspect-square  mb-3">
           <img src={`${product.imagepath}`} alt="" className="w-full h-full" />
         </div>
-        <button className="opacity-0 group-hover:opacity-100 group-hover:absolute bottom-2 bg-[#08D15F] w-fit rounded-[2px] px-3 py-2 text-white  text-sm  ">
-          View Details
-        </button>
+        <button
+  onClick={handleNavigate}
+  className="opacity-0 group-hover:opacity-100 group-hover:absolute bottom-2 bg-[#08D15F] w-fit rounded-[2px] px-3 py-2 text-white  text-sm" >
+  View Details
+</button>
       </div>
 
       <div className="w-full flex flex-col items-center py-4 gap-3 group-hover:bg-[#2F1AC4]">
