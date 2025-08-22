@@ -28,7 +28,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "https://e-commerce-backend-1-o9mf.onrender.com/api/v1/user/login",
+        "https://e-commerce-backend-1sld.onrender.com/api/v1/user/login",
         {
           method: "POST",
           headers: {
