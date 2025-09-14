@@ -1,40 +1,55 @@
-import React from 'react'
-import { CiSearch } from 'react-icons/ci'
-import { IoIosArrowDown } from 'react-icons/io'
-import { Link } from 'react-router'
+import React from "react";
+import { CiSearch } from "react-icons/ci";
+import { IoIosArrowDown } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-   <nav className='w-full flex justify-center py-[15px]'>
+    <nav className="w-full bg-white shadow-md">
+      <div className="flex justify-center py-4">
+        <div className="flex w-[80%] justify-between items-center">
 
-    <div className='flex h-[40px] w-[80%] justify-between'>
+          {/* Logo and Menu */}
+          <div className="flex gap-12 items-center">
+            {/* Logo */}
+            <Link to="/">
+              <p className="font-bold text-3xl text-[#0D0E43]">Hekto</p>
+            </Link>
 
-        <div className='flex gap-[91px] items-center'>
-            <p className='font-[600] text-[34px] text-[#0D0E43]'>Hekto</p>
+            {/* Menu */}
+            <ul className="flex gap-8 items-center text-[#0D0E43] text-base font-medium">
+              <li className="flex items-center gap-1 cursor-pointer text-[#FB2E86] hover:text-[#FF69A3] transition-all">
+                <Link to="/">Home</Link>
+                <IoIosArrowDown className="text-sm mt-1" />
+              </li>
+              <li className="hover:text-[#FB2E86] transition-all cursor-pointer">Pages</li>
+              <li className="hover:text-[#FB2E86] transition-all cursor-pointer">
+                <Link to="/products">Products</Link>
+              </li>
+              <li className="hover:text-[#FB2E86] transition-all cursor-pointer">Blog</li>
+              <li className="hover:text-[#FB2E86] transition-all cursor-pointer">
+                <Link to="/shop">Shop</Link>
+              </li>
+              <li className="hover:text-[#FB2E86] transition-all cursor-pointer">Contacts</li>
+            </ul>
+          </div>
 
-            
-                <ul className=' flex text-base gap-[35px] leading-[20px] text-[#0D0E43] h-full items-center mt-0 cursor-pointer'>
-                    <Link to={'/'}><li className='text-[#FB2E86] flex items-center h-fit'><span>Home </span><IoIosArrowDown className='text-sm  mt-1' /></li></Link>
-                  <li>Pages</li>
-                    <Link to='/products' className=""><li>Products</li></Link>
-                    
-                    <li>Blog</li>
-                    <Link to={'/shop'}><li>Shop</li></Link>
-                    <li>Contacts</li>
-                </ul>
-          
+          {/* Search Box */}
+          <div className="flex items-center border-2 border-[#E7E6EF] rounded-md overflow-hidden w-[320px]">
+            <input
+              type="search"
+              placeholder="Search products..."
+              className="flex-1 h-10 px-3 outline-none"
+            />
+            <button className="w-12 flex items-center justify-center bg-[#FB2E86] hover:bg-[#FF4B9D] transition-all">
+              <CiSearch className="text-white text-xl" />
+            </button>
+          </div>
+
         </div>
+      </div>
+    </nav>
+  );
+};
 
-        <div className='w-[317px] flex items-center justify-between border-[2px] border-[#E7E6EF]'>
-            <input type="search" className='h-full w-full rounded-none px-3'/>
-            <div className='w-[51px] px-[15px] py-[10px] bg-[#FB2E86]'>
-
-            <CiSearch  className=' text-white h-full  text-[20px] '/>
-            </div>
-        </div>
-    </div>
-   </nav>
-  )
-}
-
-export default Navbar
+export default Navbar;

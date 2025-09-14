@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux';
 // store it in global store
 
 export const Protected = ({ children }) => {
-  const { isAuthenticated} = useSelector(state => state.auth);
+  // const { isAuthenticated} = useSelector(state => state.auth);
+  const { isAuthenticated} = true;
 
   const location = useLocation();
   
@@ -20,9 +21,9 @@ export const Protected = ({ children }) => {
   //   );
   // }
   
-  if (!isAuthenticated) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
+  // if (!isAuthenticated) {
+  //   return <Navigate to="/login" state={{ from: location }} replace />;
+  // }
   
   return children;
 };

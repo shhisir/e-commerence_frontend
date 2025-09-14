@@ -1,6 +1,5 @@
 import React from "react";
 import Hero from "../component/landing/Hero";
-
 import Product from "../component/landing/Product";
 import LatestProduct from "../component/landing/LatestProduct";
 import Offer from "../component/landing/Offer";

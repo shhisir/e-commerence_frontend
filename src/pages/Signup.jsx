@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white border border-blue-500 rounded-lg p-10 w-[544px]">
         <h2 className="text-3xl font-bold text-center mb-2">Sign Up</h2>
@@ -41,13 +41,13 @@ const Signup = () => {
 
         <p className="text-center text-gray-500 mt-6">
           Already have an account?
-          <a href="#" className="ml-1 text-gray-500 hover:underline">
+          <Link to="/login" className="ml-1 text-blue-500 hover:underline">
             Login
-          </a>
+          </Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default Signup
+export default Signup;

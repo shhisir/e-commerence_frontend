@@ -1,3 +1,4 @@
+import React from "react";
 import { CgMail } from "react-icons/cg";
 import { CiHeart } from "react-icons/ci";
 import { FaPhoneVolume } from "react-icons/fa";
@@ -5,44 +6,58 @@ import { GrCart } from "react-icons/gr";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const {user}= useSelector((state)=>state.auth)
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/signup"); // Redirect to signup
+  };
+
   return (
-    <div className="w-full flex justify-center  md:h-[44px] bg-[#7E33E0]">
-    <div className="lg:w-[80%] w-full  flex flex-wrap lg:flex-nowrap justify-between">
+    <div className="w-full bg-[#7E33E0] text-[#F1F1F1]">
+      <div className="lg:w-[80%] w-full mx-auto flex flex-col md:flex-row justify-between items-center py-2 px-3">
 
-      <div className="left-side w-full flex justify-center flex-wrap sm:flex-nowrap mx-auto gap-3 sm:gap-8  lg:w-fit px-3 text-[#F1F1F1]  ">
-        <p className="  flex items-center gap-[10px] ">
-          <CgMail className="text-base" />
-          <span className="">randomgmail123@gmail.com</span>
-        </p>
-        <p className="flex items-center gap-[10px] ">
-          <FaPhoneVolume className="text-base" />
+        {/* Left Side: Contact Info */}
+        <div className="flex flex-wrap items-center gap-4 md:gap-8 text-sm">
+          <p className="flex items-center gap-2 hover:text-[#FFD1F0] transition-colors">
+            <CgMail className="text-base" />
+            <span>randomgmail123@gmail.com</span>
+          </p>
+          <p className="flex items-center gap-2 hover:text-[#FFD1F0] transition-colors">
+            <FaPhoneVolume className="text-base" />
+            <span>+123 456 7890</span>
+          </p>
+        </div>
 
-          <span>randomgmail123@gmail.com</span>
-        </p>
-      </div>
-      <div className="right-side flex items-center justify-center w-full  text-[#F1F1F1]  bg-inherit">
-        <ul className=" headerUl flex items-center gap-2">
-          <li>
-            English <IoIosArrowDown />
-          </li>
-          <li >
-            USD <IoIosArrowDown />
-          </li>
-          <li >
-          
-            Login <IoPersonOutline />
-          </li>
+        {/* Right Side: User Options */}
+        <div className="flex items-center gap-4 mt-2 md:mt-0">
+          <ul className="flex items-center gap-4 text-sm">
+            <li className="flex items-center gap-1 cursor-pointer hover:text-[#FFD1F0] transition-colors">
+              English <IoIosArrowDown />
+            </li>
+            <li className="flex items-center gap-1 cursor-pointer hover:text-[#FFD1F0] transition-colors">
+              USD <IoIosArrowDown />
+            </li>
+            <li
+              className="flex items-center gap-1 cursor-pointer hover:text-[#FFD1F0] transition-colors"
+              onClick={handleLoginClick}
+            >
+              {user ? `Hi, ${user.name}` : "Login"} <IoPersonOutline />
+            </li>
+            <li className="flex items-center gap-1 cursor-pointer hover:text-[#FFD1F0] transition-colors">
+              WishList <CiHeart />
+            </li>
+          </ul>
 
-          <li >
-            WishList <CiHeart />
-          </li>
-        </ul>
-        <GrCart />
+          {/* Cart Icon */}
+          <div className="relative cursor-pointer hover:text-[#FFD1F0] transition-colors">
+            <GrCart className="text-xl" />
+          </div>
+        </div>
 
-      </div>
       </div>
     </div>
   );

@@ -1,20 +1,14 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
-import {
-  loginFailure,
-  loginStart,
-  loginSuccess,
-  setUser,
-} from "../user/authSlice";
+import { useNavigate, Link } from "react-router-dom";
+import { loginFailure, loginStart, loginSuccess, setUser } from "../user/authSlice";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -24,6 +18,7 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = async (formData) => {
+    console.log("Sending login details...");
     dispatch(loginStart());
 
     try {
@@ -31,9 +26,7 @@ const Login = () => {
         "https://e-commerce-backend-1sld.onrender.com/api/v1/user/login",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         }
       );
@@ -56,54 +49,49 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <div className="flex flex-col justify-center items-center bg-[#FFFFFF] shadow-[0_0_60px_10px_rgba(0,0,0,0.03)]  w-[533px] h-[500px]">
-        <p className="text-[32px] font-bold">Login</p>
-        <p className="text-[17px] text-[#9096B2]">
-          Please log in using account details below.
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="bg-white shadow-lg rounded-lg p-10 w-full max-w-md">
+        <h2 className="text-3xl font-bold text-center mb-2">Login</h2>
+        <p className="text-center text-gray-500 mb-6">
+          Please log in using your account details below.
         </p>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col justify-center items-center gap-4 w-full mt-[37px]"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          {/* Email */}
           <div className="flex flex-col">
             <input
-              className="border-[1px] border-[#C2C5E1] h-[52px] w-[432px] rounded-[2px] placeholder:text-[16px] placeholder-[#9096B2] px-[13px]"
               type="text"
+              placeholder="Email Address"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-gray-400"
               {...register("email", {
                 required: "Email is required",
                 pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                   message: "Invalid email address",
                 },
               })}
-              placeholder="Email Address"
             />
             {errors.email && (
-              <p className="mt-1 text-sm text-red-600">
-                {errors.email.message}
-              </p>
+              <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
             )}
           </div>
 
+          {/* Password */}
           <div className="flex flex-col">
             <input
-              className="border-[1px] border-[#C2C5E1] h-[52px] w-[432px] rounded-[2px] placeholder:text-[16px] placeholder-[#9096B2] px-[13px]"
               type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-gray-400"
               {...register("password", {
                 required: "Password is required",
-                minLength: { value: 8, message: "Min length is 8" },
+                minLength: { value: 8, message: "Minimum length is 8" },
               })}
-              placeholder="Password"
             />
             {errors.password && (
-              <p className="mt-1 text-sm text-red-600">
-                {errors.password.message}
-              </p>
+              <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
             )}
 
-            {/* Toggle Password Visibility */}
-            <label className="mt-2 text-sm text-[#9096B2] flex items-center gap-2">
+            <label className="mt-2 flex items-center gap-2 text-sm text-gray-500">
               <input
                 type="checkbox"
                 checked={showPassword}
@@ -113,24 +101,26 @@ const Login = () => {
             </label>
           </div>
 
-          <p className="text-sm text-left w-full px-[56px] text-[#9096B2]">
-            Forgot your password?
-          </p>
+          <div className="text-right">
+            <Link to="/forgot-password" className="text-sm text-pink-500 hover:underline">
+              Forgot your password?
+            </Link>
+          </div>
 
           <button
-            className="border border-[#C2C5E1] bg-[#FB2E86] h-[47px] w-[432px] rounded-[3px] text-white hover:bg-pink-600"
             type="submit"
             disabled={isLoading}
+            className="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-md font-semibold transition"
           >
-            {isLoading ? "Log In" : "Log In"}
+            {isLoading ? "Logging In..." : "Log In"}
           </button>
         </form>
 
-        <p className="text-sm mt-4 text-[#9096B2]">
-          Don't have an Account?{" "}
-          <span className="text-[#FB2E86]">
-            <a href="/signup">Create account</a>
-          </span>
+        <p className="text-center text-gray-500 mt-6 text-sm">
+          Don't have an account?{" "}
+          <Link to="/signup" className="text-pink-500 hover:underline">
+            Create account
+          </Link>
         </p>
       </div>
     </div>
@@ -138,3 +128,4 @@ const Login = () => {
 };
 
 export default Login;
+
